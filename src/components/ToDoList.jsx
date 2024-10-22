@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, ScrollView, StyleSheet, Text} from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text } from 'react-native';
 
 function ToDoList({tasks}) {
   return (
