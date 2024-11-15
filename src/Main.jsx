@@ -1,7 +1,10 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
-import { View } from 'react-native';
-import ToDoForm from './components/ToDoForm';
-import ToDoList from './components/ToDoList';
+import AboutScreen from './screns/AboutScreen';
+import HomeScreen from './screns/HomeScreen';
+
+const Stack = createNativeStackNavigator();
 
 function Main() {
   const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
@@ -11,10 +14,15 @@ function Main() {
   };
 
   return (
-    <View>
-      <ToDoList tasks={tasks} />
-      <ToDoForm addTask={addTask} />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+
+      {/* <ToDoList tasks={tasks} />
+      <ToDoForm addTask={addTask} /> */}
+    </NavigationContainer>
   );
 }
 
